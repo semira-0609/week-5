@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">week 5</string>
+
+    <string name="settings">settings</string>
+    <string name="fitness">Fitness</string>
+    <string name="personal">Personal</string>
+    <string name="work">Work</string>
+</resources>

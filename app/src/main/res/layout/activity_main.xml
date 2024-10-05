@@ -1,0 +1,164 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4CAF50"
+    tools:context=".MainActivity">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:title="My Dashboard"
+        android:layout_marginBottom="8dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:navigationIcon="@drawable/food" /> <!-- Change to your settings icon -->
+    <ImageView
+        android:id="@+id/settings_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/img"
+    android:contentDescription="@string/settings" />
+    <!-- ScrollView to wrap content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <GridLayout
+                android:layout_width="195dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:alignmentMode="alignMargins"
+                android:columnCount="2"
+                android:columnOrderPreserved="false"
+                android:rowCount="4">
+
+                <!-- Existing CardView categories -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/idea_card"
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="90dp"
+                    app:cardBackgroundColor="@color/colorPrimaryDark"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="59dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="18dp"
+                            android:src="@drawable/idea" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:fontFamily="@font/googlesans_bold"
+                            android:text="Work"
+                            android:textColor="@color/white"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- New CardView -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/new_card"
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    android:layout_margin="10dp"
+                    app:cardBackgroundColor="@color/gray"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="59dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="18dp"
+                            android:src="@drawable/food" /> <!-- Replace with your image -->
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:fontFamily="@font/googlesans_bold"
+                            android:text="New Card"
+                            android:textColor="@color/white"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Repeat for other existing cards like Suggestion, Career, Medical -->
+
+            </GridLayout>
+
+            <!-- Task Progress Bar -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:indeterminateOnly="false"
+                android:max="100"
+                android:progress="50" />
+
+            <!-- Recent Activities Section -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recentActivitiesRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="100dp"
+                android:padding="8dp"
+                tools:listitem="@layout/item_activity_card" />
+
+            <FrameLayout
+                android:id="@+id/newRecyclerViewContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recentActivitiesRecyclerView"
+                android:layout_marginTop="16dp" />
+
+            <!-- Floating Action Button (FAB) -->
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="52dp"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="16dp"
+                android:contentDescription="Add Task"
+                android:src="@drawable/career"
+                app:backgroundTint="@color/white" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
